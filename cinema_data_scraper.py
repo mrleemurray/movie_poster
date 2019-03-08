@@ -5,11 +5,7 @@ import json
 import re
 from movie import Movie
 from theatre import Theatre
-
-cinema_name = ['Alamo drafthouse brooklyn', 'alamo drafthouse katy', 'Moray Playhouse Elgin', 'edwards cinema greenway']
-# cinema_name = ['edwards cinema greenway']
-# 'Cinema Filmtheater'
-
+import cinemas
 
 def findCinemaIndex(name, threshold):
         for x in range(0,len(theatre_containers)):
@@ -64,8 +60,8 @@ def findMovieShowtimes(listing):
 
 
 theatres = []
-for x in range(0, len(cinema_name)):
-    theatres.append(Theatre(cinema_name[x]))
+for x in range(0, len(cinemas.cinemas['names'])):
+    theatres.append(Theatre(cinemas.cinemas['names'][x]))
 
 movies = []
 for location in range(0, len(theatres)):
