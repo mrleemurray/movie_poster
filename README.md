@@ -8,7 +8,7 @@ The final solution will run on a Raspberry Pi, connected to a HDMI display (hous
 The system is broken down into 2 parts:
 
 1. The backend - a python script that:
-  - takes user inputted cinema names (e.g. "Alamo Drafthouse Brooklyn")
+  - takes user inputted cinema names (e.g. "Alamo Drafthouse Brooklyn"), currently specified in cinema.py
   - locates the official establishment names & corresponding ZIP codes using Google places API
   - uses the ZIP codes & official names to find movie showtimes via webscraping IMDB (I know it's not great, but I am looking for suitable alternatives)
   - Groups movie data by cinemas playing, rather than movies playing at each cinema (removes duplicates) 
@@ -28,3 +28,4 @@ The system is broken down into 2 parts:
   
   - Incorporate proximity sensor into processing sketch
   - Find more efficient alternative to Processing (Pygame, etc. doesn't play well with Mac OS Mojave at the moment...)
+  - Make setting cinemas easier for user (perhaps use an Evernote/OneNote page)
