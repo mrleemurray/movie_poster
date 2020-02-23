@@ -5,7 +5,6 @@ import json
 import re
 from movie import Movie
 from theatre import Theatre
-import cinemas
 
 def findCinemaIndex(name, threshold):
         for x in range(0,len(theatre_containers)):
@@ -60,12 +59,15 @@ def findMovieShowtimes(listing):
 
 
 theatres = []
-for x in range(0, len(cinemas.cinemas['names'])):
-    theatres.append(Theatre(cinemas.cinemas['names'][x]))
+
+with open('cinemas.json') as cinemas_file:
+    cinemas = json.load(cinemas_file)
+    for x in range(0, len(cinemas['cinemas']['names'])):
+        theatres.append(Theatre(cinemas['cinemas']['names'][x]))
+    cinemas_file.close()
 
 movies = []
 for location in range(0, len(theatres)):
-
     name = theatres[location].displayName
     region = theatres[location].region
     zipcode = theatres[location].zipcode.replace(' ', '%20')
@@ -79,7 +81,7 @@ for location in range(0, len(theatres)):
 
     theatre_containers = html_soup.find_all('div', class_ = 'list_item odd') + html_soup.find_all('div', class_ = 'list_item even')
 
-    cinemaIndex = (findCinemaIndex(name, 50))
+    cinemaIndex = (findCinemaIndex(name, 70))
 
     listings = theatre_containers[cinemaIndex].find_all('div', class_ = 'list_item')
 
@@ -119,12 +121,11 @@ for x in range(0, len(movies)):
         for j in range(0, len(movies[x].showtimes[i])):
             print ("Time: " + movies[x].showtimes[i][j])
 
-def generateJSONFile(movieList):
+def generateJSONFile(movieList, path):
     JSONData = {}
     JSONData['movies'] = []
 
     for x in range(0,len(movieList)):
-        # playingAt = {}
         playingAt = []
         for y in range(0, len(movieList[x].theatres)):
 
@@ -140,7 +141,7 @@ def generateJSONFile(movieList):
             'poster': movieList[x].posterUrl,
             'playingAt': playingAt
         })
-    with open('movieData.txt', 'w') as outfile:  
-        json.dump(JSONData, outfile)
+    with open(path + 'movieData.json', 'w') as outfile:  
+        json.dump(JSONData, outfile, sort_keys=True, indent=4)
 
-generateJSONFile(movies)
+generateJSONFile(movies, './poster/public/static/')

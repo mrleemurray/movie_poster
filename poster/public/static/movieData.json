@@ -1,0 +1,442 @@
+{
+    "movies": [
+        {
+            "metascore": "78", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "8:00"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "2:15", 
+                        "5:00", 
+                        "7:45"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "8:40"
+                    ], 
+                    "theatre": "Rich Mix"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/AuGiPiGMYMkSosOJ3BQjDEAiwtO.jpg", 
+            "runningTime": "119 min", 
+            "title": "1917 (2019)"
+        }, 
+        {
+            "metascore": "26", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "12:30", 
+                        "3:00"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "10:40", 
+                        "1:00", 
+                        "3:25"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/5eNiYMu2GXCtNlDwMcJqKGVwyoX.jpg", 
+            "runningTime": "101 min", 
+            "title": "Dolittle (2020)"
+        }, 
+        {
+            "metascore": "68", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "5:20"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "3:15"
+                    ], 
+                    "theatre": "Rich Mix"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/sm8iVzA7kRp0d4BSIsgXjsSBMKV.jpg", 
+            "runningTime": "125 min", 
+            "title": "Emma. (2020)"
+        }, 
+        {
+            "metascore": "64", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "12:15"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/pjeMs3yqRmFL3giJy4PMXWZTTPa.jpg", 
+            "runningTime": "103 min", 
+            "title": "Frozen II (2019)"
+        }, 
+        {
+            "metascore": "60", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "11:30", 
+                        "2:15", 
+                        "4:40", 
+                        "7:40"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "6:00", 
+                        "8:30"
+                    ], 
+                    "theatre": "Phoenix Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "3:15", 
+                        "5:50"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "6:00", 
+                        "8:30"
+                    ], 
+                    "theatre": "Rich Mix"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/qGddT79zbTxI0bA2E7zJVYIYDZv.jpg", 
+            "runningTime": "104 min", 
+            "title": "Greed (2019)"
+        }, 
+        {
+            "metascore": "58", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "2:45", 
+                        "5:30"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "8:40"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "3:30"
+                    ], 
+                    "theatre": "Rich Mix"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/7GsM4mtM0worCtIVeiQt28HieeN.jpg", 
+            "runningTime": "108 min", 
+            "title": "Jojo Rabbit (2019)"
+        }, 
+        {
+            "metascore": "59", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "8:10"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "3:45"
+                    ], 
+                    "theatre": "The Castle Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "8:50"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/q4VMyavCoXxN9U8AONE2YryQDVz.jpg", 
+            "runningTime": "105 min", 
+            "title": "Little Joe (2019)"
+        }, 
+        {
+            "metascore": "91", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "11:45"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/mSmiB8XjUnR1GSIljuCPGsk0cwX.jpg", 
+            "runningTime": "135 min", 
+            "title": "Little Women (2019)"
+        }, 
+        {
+            "metascore": "96", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "11:15", 
+                        "2:00", 
+                        "4:00", 
+                        "5:00", 
+                        "7:00", 
+                        "8:00"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "11:00", 
+                        "4:45", 
+                        "7:30"
+                    ], 
+                    "theatre": "The Castle Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "2:55", 
+                        "5:45", 
+                        "5:55", 
+                        "8:15"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "2:30", 
+                        "5:30", 
+                        "8:30"
+                    ], 
+                    "theatre": "Rio Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "2:30", 
+                        "5:30", 
+                        "8:20"
+                    ], 
+                    "theatre": "Rich Mix"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/6EM7Jm3veKSW9ELMajSSxslYWDa.jpg", 
+            "runningTime": "132 min", 
+            "title": "Parasite (2019)"
+        }, 
+        {
+            "metascore": null, 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "11:30"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "10:45"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/wZy2z2K7ZWd5fNVfUTS7yasoIOW.jpg", 
+            "runningTime": "66 min", 
+            "title": "Paw Patrol: Ready, Race, Rescue! (2019)"
+        }, 
+        {
+            "metascore": "74", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "1:00", 
+                        "7:30"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "8:20"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "5:50"
+                    ], 
+                    "theatre": "Rich Mix"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/coANk5hxXAAAygxIj69YRoyWMvz.jpg", 
+            "runningTime": "132 min", 
+            "title": "Queen & Slim (2019)"
+        }, 
+        {
+            "metascore": "83", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "5:10"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }, 
+                {
+                    "showtimes": [
+                        "7:45"
+                    ], 
+                    "theatre": "The Castle Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "6:00"
+                    ], 
+                    "theatre": "Rio Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/4SC4cyzHWWzDEdszdxHYPWd32YH.jpg", 
+            "runningTime": "109 min", 
+            "title": "The Lighthouse (2019)"
+        }, 
+        {
+            "metascore": "75", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "2:40"
+                    ], 
+                    "theatre": "Hackney Picturehouse"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/2epgo9k2Jrs7qrTL1Rork1mDSKT.jpg", 
+            "runningTime": "119 min", 
+            "title": "The Personal History of David Copperfield (2019)"
+        }, 
+        {
+            "metascore": "82", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "6:00"
+                    ], 
+                    "theatre": "The Castle Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/bYDK57xzZli6krR6iGQQcqxaz91.jpg", 
+            "runningTime": "81 min", 
+            "title": "Midnight Family (2019)"
+        }, 
+        {
+            "metascore": "47", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "11:00", 
+                        "1:30"
+                    ], 
+                    "theatre": "The Castle Cinema"
+                }, 
+                {
+                    "showtimes": [
+                        "10:45", 
+                        "1:05", 
+                        "3:30", 
+                        "5:50"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg", 
+            "runningTime": "99 min", 
+            "title": "Sonic the Hedgehog (2020)"
+        }, 
+        {
+            "metascore": null, 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "2:00"
+                    ], 
+                    "theatre": "The Castle Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/eUfj1NXxd7yIiCrqAOUm1MYL2CQ.jpg", 
+            "runningTime": "84 min", 
+            "title": "The Killing (1956)"
+        }, 
+        {
+            "metascore": "60", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "12:30"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/h4VB6m0RwcicVEZvzftYZyKXs6K.jpg", 
+            "runningTime": "109 min", 
+            "title": "Birds of Prey (2020)"
+        }, 
+        {
+            "metascore": "58", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "12:10"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/jyw8VKYEiM1UDzPB7NsisUgBeJ8.jpg", 
+            "runningTime": "123 min", 
+            "title": "Jumanji: The Next Level (2019)"
+        }, 
+        {
+            "metascore": "54", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "11:35"
+                    ], 
+                    "theatre": "Genesis Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/30YacPAcxpNemhhwX0PVUl9pVA3.jpg", 
+            "runningTime": "102 min", 
+            "title": "Spies in Disguise (2019)"
+        }, 
+        {
+            "metascore": "47", 
+            "playingAt": [
+                {
+                    "showtimes": [
+                        "3:15", 
+                        "8:50"
+                    ], 
+                    "theatre": "Rio Cinema"
+                }
+            ], 
+            "poster": "http://image.tmdb.org/t/p/original/uJeNI0jc2VKd3L2JswUhijNvs0.jpg", 
+            "runningTime": "119 min", 
+            "title": "The Public (2018)"
+        }
+    ]
+}
