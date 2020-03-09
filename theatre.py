@@ -1,6 +1,5 @@
 ###cinema locator###
 
-from requests import get
 import urllib
 import json
 import config as keys

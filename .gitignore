@@ -12,8 +12,9 @@ Thumbs.db
 ###############
 *config.py
 *.pyc
-*.vscode/
+.vscode/
 
 # Generated data files #
 ########################
 *movieData.txt
+./cinemas.json
