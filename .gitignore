@@ -11,6 +11,7 @@ Thumbs.db
 # Config files #
 ###############
 *config.py
+*.pyc
 *.vscode/
 
 # Generated data files #
