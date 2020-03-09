@@ -10,14 +10,17 @@
       :touchable="false"
       :arrows="false"
       :autoplay="true"
-      :bullets="false"  
-      fixed-height="120px"
+      :bullets="false"
+      :duration="5000"
+      :transitionSpeed="1000"
+      fixed-height="140px"
     >
       <vueper-slide 
         v-for="(showtime, index) in movie.playingAt"
         :key="index"
-        :content="showtimeInfo(showtime)"
+        :content="showtimeInfo(showtime, movie.date)"
         :style="'background-color: transparent'"
+        @clicked="talk(index)"
       />
     </vueper-slides>
     </div>
@@ -37,8 +40,9 @@
 </template>
 
 <script>
-import { VueperSlides, VueperSlide } from 'vueperslides'
-import 'vueperslides/dist/vueperslides.css'
+import { VueperSlides, VueperSlide } from 'vueperslides';
+import 'vueperslides/dist/vueperslides.css';
+import Moment from 'moment';
 
 export default {
   name: 'Poster',
@@ -82,8 +86,9 @@ export default {
     }
   },
   methods: {
-    showtimeInfo(input) {
+    showtimeInfo(input, date) {
       let output = `<div class="theatre"><h3>${input.theatre}</h3>`;
+      output += `<div class="date">${Moment(date).format('Do MMMM')}</div>`
       output += `<div class="times">`
       for (let i=0; i < input.showtimes.length; i++) {
         output += `<div class="time">${input.showtimes[i]}</div>`
@@ -91,6 +96,9 @@ export default {
       output += `</div></div>`
       return output;
     },
+    talk(input) {
+      console.log(input);
+    }
   },
 }
 </script>
@@ -128,13 +136,9 @@ export default {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
   }
   .metascore {
-    /* border: 2px solid transparent; */
     padding: 2px 4px;
     border-radius: 2px;
-    margin-right: 250px;
-  }
-  .runTime {
-    /* padding: 3px; */
+    margin-right: 300px;
   }
   .metascore.bad {
     background-color: rgba(255, 0, 0, 0.5);
@@ -151,18 +155,32 @@ export default {
     box-shadow:  none !important;
   }
   .theatre > h3 {
-    margin: 0px 0px 12px 0px;
+    margin: 0px 0px 18px 0px;
+  }
+  .date {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
   .times {
     display: flex;
     justify-content: center;
     font-family: monospace;
+    z-index: 999;
   }
   .time {
     font-size: 1.2rem;
-    margin: 0px 12px;
+    margin: 0px 10px;
     padding: 2px 8px;
     border: 1px solid white;
+    font-family: monospace;
+    color: white;
     border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+    
+  }
+  .time:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
   }
 </style>

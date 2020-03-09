@@ -34,7 +34,8 @@ export default {
       options: {
         effect: 'fade',
         loop: true,
-        autoplay: 10000,
+        autoplay: 20000,
+        speed: 1000,
         pagination: false
       }
     }

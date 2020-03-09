@@ -3,6 +3,7 @@ from requests import get
 from bs4 import BeautifulSoup
 import json
 import re
+import datetime
 from movie import Movie
 from theatre import Theatre
 
@@ -21,8 +22,9 @@ def nameProbabilityMatch(google_name, imdb_name):
     return (float(probabiltyCounter) / float(checkLength) * 100)
 
 def checkForExistingMovie(title, movies):
+    parsed_title = title.split('(')[0].strip()
     for x in range(0, len(movies)):
-        if(title == movies[x].title):
+        if(parsed_title == movies[x].title):
             return x
     return None
 
@@ -53,10 +55,9 @@ def findMovieShowtimes(listing):
         else:
             for i in range(1,len(showtimes)):
                 times.append(showtimes[i].text.strip().split(' ')[0])
-        return(times)
+        return times
     except:
         return None
-
 
 theatres = []
 
@@ -72,54 +73,61 @@ for location in range(0, len(theatres)):
     region = theatres[location].region
     zipcode = theatres[location].zipcode.replace(' ', '%20')
 
-    url = 'https://www.imdb.com/showtimes/' + region + '/' + zipcode
+    for day in range(1,2):
+        today = datetime.datetime.today() 
+        next_day = today + datetime.timedelta(day)
+        next_date = datetime.datetime.strftime(next_day,'%Y-%m-%d')
 
-    response = get(url)
+        url = 'https://www.imdb.com/showtimes/' + region + '/' + zipcode + '/' + next_date
 
-    html_soup = BeautifulSoup(response.text, 'html.parser')
-    type(html_soup)
+        response = get(url)
 
-    theatre_containers = html_soup.find_all('div', class_ = 'list_item odd') + html_soup.find_all('div', class_ = 'list_item even')
+        html_soup = BeautifulSoup(response.text, 'html.parser')
+        type(html_soup)
 
-    cinemaIndex = (findCinemaIndex(name, 70))
+        theatre_containers = html_soup.find_all('div', class_ = 'list_item odd') + html_soup.find_all('div', class_ = 'list_item even')
 
-    listings = theatre_containers[cinemaIndex].find_all('div', class_ = 'list_item')
+        cinemaIndex = (findCinemaIndex(name, 70))
 
-    for x in range(0, len(listings)):
-        title = findMovieTitle(listings[x])
-        runtime = findMovieRuntime(listings[x])
-        metascore = findMovieScore(listings[x])
-        showtimes = findMovieShowtimes(listings[x])
-        cinemaIndex = checkForExistingMovie(title, movies)
-        if cinemaIndex is None:
-            movies.append(Movie(title, runtime, metascore, name, showtimes))
-        else:
-            movies[cinemaIndex].addTheatre(name)
-            movies[cinemaIndex].addShowtimes(showtimes)
+        try:
 
-    
-# print ("ALL UNIQUE MOVIES:")
-# print (len(movies))
+            listings = theatre_containers[cinemaIndex].find_all('div', class_ = 'list_item')
 
-for x in range(0, len(movies)):
-    print("########################")
-    print ("Movie title: " + movies[x].title)
-    try:
-        print ("Runtime: " + movies[x].runtime)
-    except:
-        print ("No runtime info")
-    try:
-        print ("Metascore: " + movies[x].metascore)
-    except:
-        print ("No metascore")
-    try:
-        print ("Poster: " + movies[x].posterUrl)
-    except:
-        print ("No poster available")
-    for i in range(0, len(movies[x].theatres)):
-        print ("Playing at: " + movies[x].theatres[i])
-        for j in range(0, len(movies[x].showtimes[i])):
-            print ("Time: " + movies[x].showtimes[i][j])
+            for x in range(0, len(listings)):
+                title = findMovieTitle(listings[x])
+                runtime = findMovieRuntime(listings[x])
+                metascore = findMovieScore(listings[x])
+                showtimes = findMovieShowtimes(listings[x])
+                cinemaIndex = checkForExistingMovie(title, movies)
+                if cinemaIndex is None:
+                    movies.append(Movie(title, runtime, metascore, name, showtimes, next_date))
+                else:
+                    movies[cinemaIndex].addTheatre(name)
+                    movies[cinemaIndex].addShowtimes(showtimes)
+        except:
+            print('Could not find data for: ' + name)
+
+
+def printOutput():
+    for x in range(0, len(movies)):
+        print("########################")
+        print ("Movie title: " + movies[x].title)
+        try:
+            print ("Runtime: " + movies[x].runtime)
+        except:
+            print ("No runtime info")
+        try:
+            print ("Metascore: " + movies[x].metascore)
+        except:
+            print ("No metascore")
+        try:
+            print ("Poster: " + movies[x].posterUrl)
+        except:
+            print ("No poster available")
+        for i in range(0, len(movies[x].theatres)):
+            print ("Playing at: " + movies[x].theatres[i])
+            for j in range(0, len(movies[x].showtimes[i])):
+                print ("Time: " + movies[x].showtimes[i][j])
 
 def generateJSONFile(movieList, path):
     JSONData = {}
@@ -139,9 +147,12 @@ def generateJSONFile(movieList, path):
             'runningTime': movieList[x].runtime,
             'metascore': movieList[x].metascore,
             'poster': movieList[x].posterUrl,
+            'date': movieList[x].date,
             'playingAt': playingAt
         })
     with open(path + 'movieData.json', 'w') as outfile:  
         json.dump(JSONData, outfile, sort_keys=True, indent=4)
+
+# printOutput()
 
 generateJSONFile(movies, './poster/public/static/')
