@@ -1,4 +1,4 @@
-import urllib
+import urllib.request
 import json
 import unidecode
 import config as keys
@@ -12,6 +12,7 @@ class Movie:
         self.theatres = [theatres]
         self.showtimes = [showtimes]
         self.date = date
+        print(self.posterUrl)
 
     def removeDateFromTitle(self, title):
         return title.split('(')[0].strip()
@@ -33,7 +34,7 @@ class Movie:
 
     def makeApiCall(self, url, input, apiKey):
         assembledUrl = url % {"apiKey" : apiKey, "input" : input}
-        response = urllib.urlopen(assembledUrl)
+        response = urllib.request.urlopen(assembledUrl)
         return json.loads(response.read())
     
     def findPoster(self, name):

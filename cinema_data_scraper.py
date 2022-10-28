@@ -9,17 +9,23 @@ from theatre import Theatre
 
 def findCinemaIndex(name, threshold):
         for x in range(0,len(theatre_containers)):
-            if (nameProbabilityMatch(name, theatre_containers[x].div.h3.a.text) > threshold):
+            cinema_name = theatre_containers[x].div.h3.a.text
+            if name in cinema_name:
+                return x
+            
+            probability = nameProbabilityMatch(name, cinema_name)
+            if (probability > threshold):
                 return x
         return None
 
+### TODO: Make this much better!
 def nameProbabilityMatch(google_name, imdb_name):
     checkLength = min(len(google_name), len(imdb_name))
     probabiltyCounter = 0
     for x in range(0, checkLength):
         if(google_name[x] == imdb_name[x]):
             probabiltyCounter += 1
-    return (float(probabiltyCounter) / float(checkLength) * 100)
+    return (float(probabiltyCounter) / float(checkLength))
 
 def checkForExistingMovie(title, movies):
     parsed_title = title.split('(')[0].strip()
@@ -90,20 +96,20 @@ for location in range(0, len(theatres)):
         cinemaIndex = (findCinemaIndex(name, 70))
 
         try:
+            if cinemaIndex is not None:
+                listings = theatre_containers[cinemaIndex].find_all('div', class_ = 'list_item')
 
-            listings = theatre_containers[cinemaIndex].find_all('div', class_ = 'list_item')
-
-            for x in range(0, len(listings)):
-                title = findMovieTitle(listings[x])
-                runtime = findMovieRuntime(listings[x])
-                metascore = findMovieScore(listings[x])
-                showtimes = findMovieShowtimes(listings[x])
-                cinemaIndex = checkForExistingMovie(title, movies)
-                if cinemaIndex is None:
-                    movies.append(Movie(title, runtime, metascore, name, showtimes, next_date))
-                else:
-                    movies[cinemaIndex].addTheatre(name)
-                    movies[cinemaIndex].addShowtimes(showtimes)
+                for x in range(0, len(listings)):
+                    title = findMovieTitle(listings[x])
+                    runtime = findMovieRuntime(listings[x])
+                    metascore = findMovieScore(listings[x])
+                    showtimes = findMovieShowtimes(listings[x])
+                    cinemaIndex = checkForExistingMovie(title, movies)
+                    if cinemaIndex is None:
+                        movies.append(Movie(title, runtime, metascore, name, showtimes, next_date))
+                    else:
+                        movies[cinemaIndex].addTheatre(name)
+                        movies[cinemaIndex].addShowtimes(showtimes)
         except:
             print('Could not find data for: ' + name)
 
@@ -152,7 +158,5 @@ def generateJSONFile(movieList, path):
         })
     with open(path + 'movieData.json', 'w') as outfile:  
         json.dump(JSONData, outfile, sort_keys=True, indent=4)
-
-# printOutput()
 
 generateJSONFile(movies, './poster/public/static/')

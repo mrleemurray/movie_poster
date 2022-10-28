@@ -1,6 +1,6 @@
 ###cinema locator###
 
-import urllib
+import urllib.request
 import json
 import config as keys
 
@@ -25,5 +25,5 @@ class Theatre:
 
     def makeApiCall(self, url, input, apiKey):
         assembledUrl = url % {"apiKey" : apiKey, "input" : input}
-        response = urllib.urlopen(assembledUrl)
+        response = urllib.request.urlopen(assembledUrl)
         return json.loads(response.read())

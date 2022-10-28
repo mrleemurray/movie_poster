@@ -18,3 +18,5 @@ Thumbs.db
 ########################
 *movieData.txt
 ./cinemas.json
+
+__pycache__/

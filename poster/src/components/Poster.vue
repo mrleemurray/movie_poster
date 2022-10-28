@@ -13,7 +13,7 @@
       :bullets="false"
       :duration="5000"
       :transitionSpeed="1000"
-      fixed-height="140px"
+      fixed-height="180px"
     >
       <vueper-slide 
         v-for="(showtime, index) in movie.playingAt"
@@ -88,12 +88,14 @@ export default {
   methods: {
     showtimeInfo(input, date) {
       let output = `<div class="theatre"><h3>${input.theatre}</h3>`;
+      output += `<div class="divider"><div class="line"></div></div>`
       output += `<div class="date">${Moment(date).format('Do MMMM')}</div>`
-      output += `<div class="times">`
-      for (let i=0; i < input.showtimes.length; i++) {
-        output += `<div class="time">${input.showtimes[i]}</div>`
-      }
-      output += `</div></div>`
+      // output += `<div class="times">`
+      // for (let i=0; i < input.showtimes.length; i++) {
+      //   output += `<div class="time">${input.showtimes[i]}</div>`
+      // }
+      // output += `</div>`
+      output += `</div>`
       return output;
     },
     talk(input) {
@@ -120,25 +122,29 @@ export default {
     top: 0%;
     width: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-    height: 50vh;
     font-size: 2rem;
   }
   .info {
     position: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     width: 100%;
-    height: 8%;
-    padding-top: 4px;
-    top: 92%;
-    font-size: 1.3rem;
+    height: 10%;
+    padding-bottom: 16px;
+    bottom: 0;
+    font-size: 1.2rem;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
   }
+  .runTime {
+    opacity: 0.8;
+  }
+
   .metascore {
     padding: 2px 4px;
     border-radius: 2px;
-    margin-right: 300px;
+    margin-right: 350px;
+    opacity: 0.8;
   }
   .metascore.bad {
     background-color: rgba(255, 0, 0, 0.5);
@@ -153,14 +159,42 @@ export default {
 <style>
   .vueperslides__parallax-wrapper:after, .vueperslides:not(.no-shadow):not(.vueperslides--3d) {
     box-shadow:  none !important;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  }
+
+  .vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {
+    justify-content: start !important;
+    padding-top: 12px;
   }
   .theatre > h3 {
-    margin: 0px 0px 18px 0px;
+    position: relative;
+    font-size: 2rem;
+    margin: 0px 0px 4px 0px;
+    opacity: 0.8;
+  }
+
+  .divider {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-content: center;
+    width: 100%;
+    height: 1px;
+  }
+
+  .line {
+    margin: 0 auto; 
+    width: 70%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.4;
+    
   }
   .date {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    margin-top: 4px;
+    opacity: 0.6;
   }
   .times {
     display: flex;
@@ -169,7 +203,7 @@ export default {
     z-index: 999;
   }
   .time {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0px 10px;
     padding: 2px 8px;
     border: 1px solid white;
