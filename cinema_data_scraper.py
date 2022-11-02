@@ -141,21 +141,22 @@ def generateJSONFile(movieList, path):
 
     for x in range(0,len(movieList)):
         playingAt = []
-        for y in range(0, len(movieList[x].theatres)):
+        if movieList[x].posterUrl is not None:
+            for y in range(0, len(movieList[x].theatres)):
 
-            playingAt.append({
-                'theatre': movieList[x].theatres[y],
-                'showtimes': movieList[x].showtimes[y]
+                playingAt.append({
+                    'theatre': movieList[x].theatres[y],
+                    'showtimes': movieList[x].showtimes[y]
+                })
+
+            JSONData['movies'].append({
+                'title': movieList[x].title,
+                'runningTime': movieList[x].runtime,
+                'metascore': movieList[x].metascore,
+                'poster': movieList[x].posterUrl,
+                'date': movieList[x].date,
+                'playingAt': playingAt
             })
-
-        JSONData['movies'].append({
-            'title': movieList[x].title,
-            'runningTime': movieList[x].runtime,
-            'metascore': movieList[x].metascore,
-            'poster': movieList[x].posterUrl,
-            'date': movieList[x].date,
-            'playingAt': playingAt
-        })
     with open(path + 'movieData.json', 'w') as outfile:  
         json.dump(JSONData, outfile, sort_keys=True, indent=4)
 
