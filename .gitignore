@@ -16,7 +16,8 @@ Thumbs.db
 
 # Generated data files #
 ########################
-*movieData.txt
-./cinemas.json
 
 __pycache__/
+movieData.json
+/cinemas.json
+/poster/public/static/movieData.json
