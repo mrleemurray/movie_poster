@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import json
 import re
 import datetime
+import os
 from movie import Movie
 from theatre import Theatre
 
@@ -135,7 +136,7 @@ def printOutput():
             for j in range(0, len(movies[x].showtimes[i])):
                 print ("Time: " + movies[x].showtimes[i][j])
 
-def generateJSONFile(movieList, path):
+def generateJSONFile(movieList, relative_path):
     JSONData = {}
     JSONData['movies'] = []
 
@@ -157,7 +158,10 @@ def generateJSONFile(movieList, path):
                 'date': movieList[x].date,
                 'playingAt': playingAt
             })
-    with open(path + 'movieData.json', 'w') as outfile:  
+
+    absolute_path = os.path.dirname(__file__)
+    full_path = os.path.join(absolute_path, relative_path)
+    with open(full_path + 'movieData.json', 'w') as outfile:  
         json.dump(JSONData, outfile, sort_keys=True, indent=4)
 
 generateJSONFile(movies, './poster/public/static/')
