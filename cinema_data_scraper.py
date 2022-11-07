@@ -68,7 +68,8 @@ def findMovieShowtimes(listing):
 
 theatres = []
 
-with open('cinemas.json') as cinemas_file:
+absolute_path = os.path.dirname(__file__)
+with open(absolute_path + '/cinemas.json') as cinemas_file:
     cinemas = json.load(cinemas_file)
     for x in range(0, len(cinemas['cinemas']['names'])):
         theatres.append(Theatre(cinemas['cinemas']['names'][x]))
