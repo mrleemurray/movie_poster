@@ -1,12 +1,13 @@
 ###cinema locator###
 
+from typing import Any
 import urllib.request
 import json
 import config as keys
 
 class Theatre:
     def __init__(self, name):
-        self.addressData = self.retrieveAddressJSON(name)
+        self.addressData: Any = self.retrieveAddressJSON(name)
         self.displayName = self.addressData["result"]["name"]
         self.zipcode = self.addressData["result"]["address_components"][len(self.addressData["result"]["address_components"])-1]["long_name"]
         self.region = self.addressData["result"]["address_components"][len(self.addressData["result"]["address_components"])-2]["short_name"]
